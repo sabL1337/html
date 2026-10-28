@@ -1,1 +1,188 @@
-test
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linux commando's</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Linux commando's</h1>
+    <p>Alle commando's die ik heb geleerd, met uitleg en voorbeelden.</p>
+    <nav>
+      <a href="#structuur">Structuur</a>
+      <a href="#navigeren">Navigeren</a>
+      <a href="#beheren">Bestanden beheren</a>
+      <a href="#lezen">Bestanden lezen</a>
+      <a href="#tips">Tips</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="structuur">
+      <h2>Structuur van Linux</h2>
+      <p>Alles begint bij de root directory <code>/</code>. Dit zijn de belangrijkste mappen:</p>
+      <table>
+        <thead><tr><th>Map</th><th>Waar is het voor</th></tr></thead>
+        <tbody>
+          <tr><td><code>/home</code></td><td>Gebruikers</td></tr>
+          <tr><td><code>/etc</code></td><td>Systeem files (configuratie)</td></tr>
+          <tr><td><code>/var</code></td><td>Variabele files en logs</td></tr>
+          <tr><td><code>/bin</code></td><td>Systeem commando's</td></tr>
+        </tbody>
+      </table>
+      <details>
+        <summary>Alle mappen van de FHS (Filesystem Hierarchy Standard)</summary>
+        <table>
+          <tbody>
+            <tr><td><code>/bin</code></td><td>Essential user command binaries</td></tr>
+            <tr><td><code>/boot</code></td><td>Static files of the boot loader</td></tr>
+            <tr><td><code>/dev</code></td><td>Device files</td></tr>
+            <tr><td><code>/etc</code></td><td>Host-specific system configuration</td></tr>
+            <tr><td><code>/home</code></td><td>User home directories</td></tr>
+            <tr><td><code>/lib</code></td><td>Essential shared libraries and kernel modules</td></tr>
+            <tr><td><code>/media</code></td><td>Mount point for removable media</td></tr>
+            <tr><td><code>/mnt</code></td><td>Mount point for temporarily mounted filesystems</td></tr>
+            <tr><td><code>/opt</code></td><td>Add-on application software packages</td></tr>
+            <tr><td><code>/sbin</code></td><td>System binaries</td></tr>
+            <tr><td><code>/srv</code></td><td>Data for services provided by this system</td></tr>
+            <tr><td><code>/tmp</code></td><td>Temporary files</td></tr>
+            <tr><td><code>/usr</code></td><td>(Multi-)user utilities and applications</td></tr>
+            <tr><td><code>/var</code></td><td>Variable files</td></tr>
+            <tr><td><code>/root</code></td><td>Home directory for the root user</td></tr>
+            <tr><td><code>/proc</code></td><td>Virtual filesystem documenting kernel and process status</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </section>
+
+    <section id="navigeren">
+      <h2>Navigeren</h2>
+
+      <article class="cmd">
+        <h3><code>pwd</code></h3>
+        <p>Print Working Directory: laat zien in welke map je nu zit.</p>
+        <pre><span class="prompt">$</span> pwd</pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>ls</code></h3>
+        <p>List: laat de inhoud van een map zien.</p>
+        <pre><span class="prompt">$</span> ls
+<span class="prompt">$</span> ls -l     <span class="note"># uitgebreide lijst</span>
+<span class="prompt">$</span> ls -a     <span class="note"># ook verborgen bestanden</span></pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>cd</code></h3>
+        <p>Change Directory: ga naar een andere map.</p>
+        <pre><span class="prompt">$</span> cd /var/log   <span class="note"># naar een map met pad</span>
+<span class="prompt">$</span> cd ..         <span class="note"># een map omhoog</span></pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>man</code></h3>
+        <p>Manual: laat de handleiding van een commando zien.</p>
+        <pre><span class="prompt">$</span> man ls</pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>tree</code></h3>
+        <p>Laat mappen en bestanden zien als een boomstructuur.</p>
+        <pre><span class="prompt">$</span> tree</pre>
+      </article>
+    </section>
+
+    <section id="beheren">
+      <h2>Bestanden en mappen beheren</h2>
+
+      <article class="cmd">
+        <h3><code>touch</code></h3>
+        <p>Maak een lege file.</p>
+        <pre><span class="prompt">$</span> touch bestand.txt</pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>mkdir</code></h3>
+        <p>Maak een nieuwe map.</p>
+        <pre><span class="prompt">$</span> mkdir nieuwe_map</pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>rm</code></h3>
+        <p>Verwijder een bestand of map.</p>
+        <pre><span class="prompt">$</span> rm bestand.txt
+<span class="prompt">$</span> rm -r nieuwe_map   <span class="note"># map verwijderen</span></pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>cp</code></h3>
+        <p>Kopieer een bestand of map.</p>
+        <pre><span class="prompt">$</span> cp bestand.txt kopie.txt</pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>mv</code></h3>
+        <p>Verplaats een bestand of map (werkt ook om te hernoemen).</p>
+        <pre><span class="prompt">$</span> mv bestand.txt nieuwe_map/</pre>
+      </article>
+    </section>
+
+    <section id="lezen">
+      <h2>Bestanden lezen en bewerken</h2>
+
+      <article class="cmd">
+        <h3><code>nano</code></h3>
+        <p>Command line tekst editor.</p>
+        <pre><span class="prompt">$</span> nano bestand.txt</pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>cat</code></h3>
+        <p>Concatenate: laat de inhoud zien.</p>
+        <pre><span class="prompt">$</span> cat bestand.txt</pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>less</code></h3>
+        <p>Laat de inhoud zien van 1 pagina per keer.</p>
+        <pre><span class="prompt">$</span> less bestand.txt</pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>head</code></h3>
+        <p>Laat de inhoud zien van de bovenkant van een file.</p>
+        <pre><span class="prompt">$</span> head bestand.txt</pre>
+      </article>
+
+      <article class="cmd">
+        <h3><code>tail</code></h3>
+        <p>Laat de inhoud zien van de onderkant van een file.</p>
+        <pre><span class="prompt">$</span> tail bestand.txt</pre>
+      </article>
+    </section>
+
+    <section id="tips">
+      <h2>Tips</h2>
+      <article class="cmd">
+        <h3>Commando's combineren</h3>
+        <p>Met <code>&amp;&amp;</code> voer je meerdere commando's na elkaar uit.</p>
+        <pre><span class="prompt">$</span> cd /etc &amp;&amp; ls</pre>
+      </article>
+      <article class="cmd">
+        <h3>Tab-toets</h3>
+        <p>Druk op Tab om een commando of bestandsnaam automatisch aan te vullen.</p>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Gemaakt voor ICT Medewerker Supporter</p>
+  </footer>
+
+</body>
+</html>
